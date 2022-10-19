@@ -16,6 +16,8 @@
     --main-font: 'Roboto', sans-serif;
     --icon-instagram: #afb1b8;
     --color-white-10p: rgba(255, 255, 255, 0.1);
+    --black-color-20p: rgba(0, 0, 0, 0.2);
+    --overlay-blue-90p: rgba(33, 150, 243, 0.9);
 }
 
 
@@ -128,6 +130,7 @@ a{
 }
 
 .header-nav-link{
+    position: relative;
     padding: 32px 0px;
     display: block;
 
@@ -135,8 +138,22 @@ a{
     font-weight: 500;
     letter-spacing: 0.02em;
     line-height: 1.14;
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 } 
+
+.current::after {
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 0;
+    border-radius: 2px;
+    width: 100%;
+    height: 4px;
+    background-color: var(--blue-color);
+
+
+}
 
 .header-address-link{
     padding: 32px 0px;
@@ -147,6 +164,7 @@ a{
     font-weight: 500;
     letter-spacing: 0.02em;
     line-height: 1.14;
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 
@@ -164,6 +182,8 @@ a{
     margin-right: 10px;
     fill: currentColor;
 }
+
+
 
 .current {
     color: var(--blue-color);
@@ -204,7 +224,10 @@ a{
 
     width: 100%;
     height: 100%;
-    background-color: var(--header-footer-color-40p);
+    background-color: var(--black-color-20p);
+
+    opacity: 1;
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 
 }
@@ -217,17 +240,28 @@ a{
 
 }
 
+/* ПОВТОРИТЬ */
+
+.backdrop.is-hidden .modal{
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
 .modal{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    /* transform: translate(-50%, -50%); */
 
     width: 528px;
     height: 581px;
     background-color: var(--white-color);
 
-    
+    /* ВАЖНО */
+
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 .button-close{
@@ -307,7 +341,7 @@ a{
     text-align: center;
     border: none;
     cursor: pointer;
-
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     
 }
 
@@ -424,9 +458,12 @@ a{
 
 }
 
+.occupation-div{
+
+}
+
 .occupation-item {
     position: relative;
-
 }
 
 .occupation-overlay{
@@ -486,6 +523,7 @@ a{
     height: 44px;
     /* border: 1px solid var(--color-border-EEEEEE); */
     fill: var(--icon-instagram);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 
@@ -577,6 +615,7 @@ letter-spacing: 0.03em;
     width: 170px;
     height: 92px;
     fill: var(--icon-instagram);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 
@@ -667,6 +706,7 @@ letter-spacing: 0.03em;
     font-weight: 400;
     letter-spacing: 0.03em;
     line-height: 1.71;
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 
@@ -715,6 +755,7 @@ letter-spacing: 0.03em;
     width: 44px;
     height: 44px;
     fill: var(--white-color);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 
@@ -758,7 +799,7 @@ letter-spacing: 0.03em;
     line-height: 1.6;
     letter-spacing: 0.03em;
     text-align: center;
-    
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     
 }
 
@@ -785,12 +826,69 @@ letter-spacing: 0.03em;
     
 }
 
+
+.offer-link{
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .offer-link:focus,
 .offer-link:hover {
     display: block;
     box-shadow: 12px 16px 22px -11px rgba(39, 52, 62, 0.5);
 
 }
+
+
+
+
+.offer-animation{
+    position: relative;
+    overflow: hidden;
+
+}
+
+
+.offer-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    
+    padding: 63px 24px;
+
+    transform: translateY(100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: var(--overlay-blue-90p);
+
+}
+
+.offer-link:hover .offer-overlay{
+    transform: translateY(0);
+    opacity: 1;
+
+}
+
+.offer-animation-p {
+    font-size: 18px;
+    line-height: 1.56;
+    color: #FFFFFF;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -822,7 +920,7 @@ letter-spacing: 0.03em;
     font-size: 16px;
     line-height: 1.88;
     letter-spacing: 0.03em;
-    
+
 }
 
 
@@ -835,9 +933,9 @@ letter-spacing: 0.03em;
 
 
 
-
-
-
+/* анимация только transform: translate(); и opacity:; */
+/* cubic-bezier */
+/* overflow: hidden;  - переполнение спрятать*/
 
 /* text-transform
 С помощью него можно менять регистр текста: можно преобразовать текст в ПРОПИСНЫЕ, 
