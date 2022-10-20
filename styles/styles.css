@@ -138,7 +138,7 @@ a{
     font-weight: 500;
     letter-spacing: 0.02em;
     line-height: 1.14;
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 } 
 
@@ -164,7 +164,7 @@ a{
     font-weight: 500;
     letter-spacing: 0.02em;
     line-height: 1.14;
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 
@@ -218,6 +218,7 @@ a{
 
 .backdrop{
     position: fixed;
+    z-index: 1;
     top: 0;
     left: 0;
 
@@ -227,7 +228,7 @@ a{
     background-color: var(--black-color-20p);
 
     opacity: 1;
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 
 }
@@ -268,6 +269,10 @@ a{
     position: absolute;
     right: 8px;
     top: 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     width: 30px;
     height: 30px;
@@ -466,20 +471,18 @@ a{
     position: relative;
 }
 
-.occupation-overlay{
+
+.overlay-p{
     position: absolute;
     bottom: 0;
     left: 0;
     width: 370px;
     height: 70px;
     background-color: var(--header-footer-color-80p);
+    justify-content: center;
     text-align: center;
     padding: 27px 0px;
 
-}
-
-
-.overlay-p{
     color: #FFFFFF;
     font-weight: 700;
     line-height: 1.14;
@@ -523,7 +526,7 @@ a{
     height: 44px;
     /* border: 1px solid var(--color-border-EEEEEE); */
     fill: var(--icon-instagram);
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 
@@ -615,7 +618,7 @@ letter-spacing: 0.03em;
     width: 170px;
     height: 92px;
     fill: var(--icon-instagram);
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 
@@ -706,7 +709,7 @@ letter-spacing: 0.03em;
     font-weight: 400;
     letter-spacing: 0.03em;
     line-height: 1.71;
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 
@@ -755,7 +758,7 @@ letter-spacing: 0.03em;
     width: 44px;
     height: 44px;
     fill: var(--white-color);
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 
@@ -799,7 +802,7 @@ letter-spacing: 0.03em;
     line-height: 1.6;
     letter-spacing: 0.03em;
     text-align: center;
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     
 }
 
@@ -828,7 +831,7 @@ letter-spacing: 0.03em;
 
 
 .offer-link{
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .offer-link:focus,
@@ -859,11 +862,13 @@ letter-spacing: 0.03em;
     padding: 63px 24px;
 
     transform: translateY(100%);
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
     background-color: var(--overlay-blue-90p);
 
 }
 
+.offer-link:focus .offer-overlay,
 .offer-link:hover .offer-overlay{
     transform: translateY(0);
     opacity: 1;
